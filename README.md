@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Advice Generator App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Design preview](./public/design/desktop-preview.jpg)
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Solution for
+the [Advice Generator App challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db).
 
-## React Compiler
+### The challenge
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Users should be able to:
 
-## Expanding the ESLint configuration
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Generate a new piece of advice by clicking the dice icon
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Screenshot
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+![Screenshot](./public/design/desktop-design.jpg)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Links
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Solution URL: [GitHub](https://github.com/dxdxdie/advice-generator-mentor)
+- Live Site URL: _coming soon_
+
+---
+
+## Built with
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- [Advice Slip API](https://api.adviceslip.com/)
+
+## Features
+
+- Fetches a random advice from the Advice Slip API on load
+- New advice on button click
+- Cache-busting via `?timestamp=` to avoid repeated responses from the API
+- Responsive layout — mobile-first, adapts to tablet and desktop
+- Different divider SVGs for mobile and desktop breakpoints
+- Loading and error states handled gracefully
+- Glow effect on dice button hover
+
+## Project Structure
+
+```
+src/
+  App.tsx        # Main component with fetch logic and UI
+  index.css      # Tailwind CSS v4 import
+  main.tsx       # React entry point
+types/
+  index.ts       # AdviceResponse and Advice types
+public/
+  icon-dice.svg
+  pattern-divider-mobile.svg
+  pattern-divider-desktop.svg
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Install dependencies
+pnpm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start dev server
+pnpm dev
+
+# Build for production
+pnpm build
 ```
+
+## What I learned
+
+- Mobile-first responsive design with Tailwind CSS breakpoints (`md:`, `lg:`)
+- Positioning elements outside their parent using `absolute` + `translate-y-1/2`
+- Hiding/showing different assets per breakpoint with `hidden` and `lg:block`
+- Cache-busting API requests with `Date.now()` to avoid stale responses
+- TypeScript typing for API responses with interfaces and type aliases
+
+---
+
+## Author
+
+- Frontend Mentor — [@dxdxdie](https://www.frontendmentor.io/profile/dxdxdie)
+- GitHub — [@dxdxdie](https://github.com/dxdxdie)
